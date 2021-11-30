@@ -33,11 +33,11 @@
 	\input{coverPage}
 	
 	\section{Introduction to Decision Theory}
-	We refer to \textbf{statistical decision theory} as the branch of statistics concerned with the problem of making decisions in the presence of stastistical knowledge.
+	We refer to \textbf{statistical decision theory} as the branch of statistics concerned with the problem of making decisions in the presence of statistical knowledge.
 	Differently from classical statistics - which is mainly directed towards the use of sample information -, decision statistics takes \textbf{also}\footnote{Sample information is still considered} into account other relevant aspects of the problem, which usually prove crucial in the decision process:
 	\begin{itemize}
-		\item \textbf{knowledge of possible consequences} of the decision, tipically quantified from the loss (or the gain) arising from each possible decision;
-		\item \textbf{prior information}, tipically arising from past experience of similar situations
+		\item \textbf{knowledge of possible consequences} of the decision, typically quantified from the loss (or the gain) arising from each possible decision;
+		\item \textbf{prior information}, typically arising from past experience of similar situations
 	\end{itemize}
 	This report introduces the main concepts and tools of statistical decision theory as described in the introduction of \textit{James O Berger. Statistical Decision Theory and Bayesian 
 	Analysis. Springer 1985}.
@@ -71,19 +71,19 @@
 	\begin{align*}
 		R(\theta, \delta_1) \leq R(\theta, \delta_2), \ \forall \theta \in \Theta
 	\end{align*}
-	 whith strict inequality holding for some $\theta$. If no R-better decision rule exists, a decision rule $\delta$ is called \textit{admissible} (the definition of \textit{inadmissible} is dual). Nevertheless, the choice of a decision rule is quite more complicated than what we just introduced: there is usually a large class of admissible decision rules for a large problem, which,
+	 with strict inequality holding for some $\theta$. If no R-better decision rule exists, a decision rule $\delta$ is called \textit{admissible} (the definition of \textit{inadmissible} is dual). Nevertheless, the choice of a decision rule is quite more complicated than what we just introduced: there is usually a large class of admissible decision rules for a large problem, which,
 	typically, have risk functions being better than the others only locally.
 	
 	\section{Decision principles}
-	This far, we introduced how to perform a statistical analisys. We now describe the major methodologies to actually make a decision: 
+	This far, we introduced how to perform a statistical analysis. We now describe the major methodologies to actually make a decision: 
 	
 	\begin{itemize}
-		\item \textbf{conditional Bayes decision principle}: choose an acton $a \in \mathcal{A}$ such that it minimizes the expected loss $\rho(\pi^*, a)$. Such an action will be called a 
+		\item \textbf{conditional Bayes decision principle}: choose an action $a \in \mathcal{A}$ such that it minimizes the expected loss $\rho(\pi^*, a)$. Such an action will be called a 
 		\textbf{Bayes action} and will be denoted $a^{\pi^*}$. 
 	     
 		\item \textbf{Bayes risk principle:} as remarked in \textbf{section 2.3}, Bayes risk is a number, hence we define a decision rule minimizing it. Notice that, in a no-data problem, the risk is nothing but the loss which implies that this principle gives the same answer of the conditional Bayes decision one;
 		\item \textbf{invariance principle:} if two problems have same formal structure, then same decision must be taken;
-		\item\textbf{minimax principle:} this principle is often called for consideration of randomized decision rules. According to it, a rule $\delta^{*M}$ is a \textit{minmax decision rule} if it minimezes $\sup_{\theta} \ R(\theta, \delta^*)$ among all randomized rules in $\mathcal{D}^*$ i.e.
+		\item\textbf{minimax principle:} this principle is often called for consideration of randomized decision rules. According to it, a rule $\delta^{*M}$ is a \textit{minmax decision rule} if it minimizes $\sup_{\theta} \ R(\theta, \delta^*)$ among all randomized rules in $\mathcal{D}^*$ i.e.
 		\begin{align*}
 			\sup_{\theta \in \Theta} \ R(\theta, \delta^*) = \inf_{\delta^* \in \mathcal{D}^*} \sup_{\theta \in \Theta} \ R(\theta, \delta^*)
 		\end{align*}
@@ -93,23 +93,27 @@
 	In this last section, we're gonna expand even further the conditional versus frequentist controversy - crucial in statistics - as well as discuss some incorrect usages of classical inference in decision problems.
 	
 	\subsection{Misused inference procedures}	
-	A common mistake while analyzing the null hypothesis is to run tests on it without getting deep into its purposes, with the consequence of often discarding a practically useful hypotesis. An interesting example
-	involves \textbf{Kepler's law} of planetary motion, which is in fact an approximation of the reality (like every other physics model). Nonetheless, if blindly statistically tested with too accurate data, such a rather essentially correct model would be rejected. In other words, a \textbf{statistically significant difference} between the true model and the null hypotesis might be \textbf{unimportant practically}.  
+	A common mistake while analyzing the null hypothesis is to run tests on it without getting deep into its purposes, with the consequence of often discarding a "useful" hypothesis. An interesting example
+	involves \textbf{Kepler's law} of planetary motion, which is in fact an approximation of the reality (like every physics model). Nonetheless, if blindly statistically tested with too accurate data, such a rather essentially correct model would be rejected. In other words, a \textbf{statistically significant difference} between the true model and the null hypothesis might be \textbf{unimportant practically}.  
 	\subsection{Frequentist Perspective}
-	The frequentist approach aims at producing measures which don't depend upon $\theta$, or any prior knowledge about it. It considers a procedure $\delta(x)$ and a criterion function $L(\theta, \delta(x))$ to determine a quanity $\bar{R}$ s.t. repeated use of $\delta$ in different problems would yield average the long run performance of at least $\bar{R}$.
+	The frequentist approach aims at producing measures which don't depend upon $\theta$, or any prior knowledge about it. It considers a procedure $\delta(x)$ and a criterion function $L(\theta, \delta(x))$ to determine a quantity $\bar{R}$ s.t. repeated use of $\delta$ in different problems would yield average the long run performance of at least $\bar{R}$.
 
 	
 	\subsection{Conditional Perspective}
-	This approach mainly focuses on the performance on actual data and it may lead to different results with respect to the frequentist one. In order to distinguish between
-	those two categories of results, Savage (1962) introduced the terms \textit{initial precision} and \textit{final precision} to, respectively, refer to frequentist and the conditional measures. In fact, before seeing the data we can only use frequentist analysis, while after observing it we can make a more precise one.
+	The conditional approach mainly focuses on the performance of a procedure $\delta(x)$  on \textit{actual} data while the overall performance is considered almost secondary. This  might definitely lead to different results with respect to the frequentist approach introduced above. In order to distinguish between
+	those two categories of results, Savage (1962) introduced the terms \textit{initial precision} and \textit{final precision} to, respectively, refer to frequentist and conditional measures. In fact, before seeing the data we can only use frequentist analysis, while after observing it we can make a more precise one.
 	
-	Kiefer (1997a) discussed two types of conditional frequentist analysis: \textbf{conditional confidence} , where the frequentist analysis is conditioned on subset of sample space, and \textbf{estimated confidence} that doesn’t involve conditioning, but allows reported confidence to be data dependent.
+
 	\subsection{Likelihood Principle}
 	This principle makes explicit the natural conditional idea that only the actual
 	observed x should be relevant to conclusions or evidence about $\theta$. The key concept in the Likelihood Principle is that of the likelihood function $l(\theta) = f(x | \theta)$ which, intuitively, takes its name from the fact that an input $\theta$ for which $l(\theta)$ is large is more "likely" to be the true $\theta$ than a $\theta$ for which $l(\theta)$ is small.
+	Notice that two likelihood values $l_1(\theta), l_2(\theta)$ contain the same information about $\theta$ if they are proportional\footnote{It's implicit that $l_1, l_2$ must refer to the same $\theta$}.
 	
-
-	Notice that two likelihood values $l_1(\theta), l_2(\theta)$ contain the same information about $\theta$ if they are proportional. It is important to highlight, however, that the likelihood function contains \textbf{all experimental information} about $\theta$,\textbf{ but not all the information in general}: there could be some other important statistical information, as the
-	prior information or the loss analysis.
+	It is important to highlight, however, that the likelihood function contains \textbf{all experimental information} about $\theta$,\textbf{ but not all the information in general}: there could be some other important statistical information, as the
+	prior information or considerations of loss. 
+	
+	\textbf{Limitations:} this principle is not
+	enough to decide, at a given stage of our analysis, whether or not to take another observation.
+	Besides, it is not enough to predict a future value of X and does not indicate how the likelihood function should be used to make decisions or inferences about $\theta$.
 	
 \end{document}
