@@ -32,8 +32,77 @@
 \begin{document}
 	\input{coverPage}
 	
-	\section{Project Description}
-	\subsection{this is a subsection}
-	\subsection{this is another subsection}
+\section{Project Description}
+
+Nowadays, a lot of data is generated but cannot be exploited due to its sensitive nature. For
+instance, we can think of the data collected by the cameras or GPS sensors in our mobile phones,
+or the performed ultrasounds and X-ray scans, or the data produced by the Internet of Things
+(IoT). They are all of great value to the world of Big Data and Machine Learning (ML) applications,
+but are also protected by privacy and, therefore, unusable by traditional methods
+
+
+Introduced in 2016 by Google, Federated Learning (FL) is a machine learning scenario born with
+the aim of using privacy-protected data without violating the regulations in force. This framework
+deals with learning a central server model in privacy-constrained scenarios, where data are
+stored on multiple devices (i.e. the clients). Unlike the standard machine learning setting, here the
+model has no direct access to the data, which never leave the clients’ devices: a fundamental
+requirement for any application where users’ privacy must be preserved (e.g. medical records,
+bank transactions).
+
+
+
+\section{Method}
+With this project, we aim to become familiar with the federated scenario and its standard architecture. Once implemented the baseline, we will analyze the variations that occur by modifying the value of the parameters specific to this framework, assessing the most effective ones. Finally, basing on the identified problems of the resulting model, we would try to propose a possible solution to address one of them. The following list represents roughly the path we want to follow:
+
+\begin{enumerate}
+    \item To get familiar with Federated Learning and its main algorithms and architecture.
+    \item  To replicate the experiments proposed by [3] on the CIFAR10 dataset.
+    \item To understand the contribution made by each parameter of the federated setting by
+proposing an experimental study.
+\item To understand the importance of clients’ local data distribution in the federated scenario. 
+\item To make our contribution for solving existing issues (Not yet defined)
+\end{enumerate}
+
+The idea is to start studying the first papers published by Google [1][2] 
+where Federated Learning and its main algorithm FederatedAveraging (FedAvg) are introduced.
+
+Then we want to replicate the experiments performed in [3] with the CIFAR10 and CIFAR100 datasets.
+In order to do so, we will implement first the baseline which is composed of:
+\begin{itemize}
+    \item standard updates aggregation algorithm i.e. FedAvg
+    \item define the communication paradigm (synchronous vs asynchronous, number of communication
+		rounds, number of clients selected at each round, etc)
+	\item division of the dataset among clients.
+\end{itemize}
+The dataset for the Baseline will be CIFAR10. Challenging will be to understand how to adapt it to
+the federated scenario, i.e. how to divide it among clients, how many clients we will have and so on.
+
+The task is image classification on 10 classes. In [3], there is a possible choice of the neural
+network, i.e. LeNet5 [11]. We will decide whether to keep that architecture or change it.
+
+For validating the results, the reference metric is the weighted average of the accuracy reached
+by each client, where the weight corresponds to the number of samples seen by that client. 
+
+Finally, in order to have an upper bound on the results, we will test our model in a
+centralized manner, i.e. in the “standard” way, outside the federated framework (train and test the network on all data, disregarding the division among clients and the client-server architecture).
+
+After having implemented the baseline, we will perform an experimental study. The aim of the ablation studies is to understand and verify the effects of the parameters we
+blindly chose in the previous step. We expect to have variations occurring when modifying the clients’ local data distribution and the value of the FL parameters.
+
+The last part of the project will be based on our variation. So far we spot two possible candidates:
+
+\begin{itemize}
+    \item \textbf{Algorithm for aggregating the updates on the server-side}: in FL, the standard and most
+used algorithm is FederatedAveraging (FedAvg). Some works propose possible improvements and changes of FedAvg to answer different issues [10,12,14,18]. Otherwise, different algorithms exist, such as FedSGD [2].
+\item \textbf{Neural Network for classification}: For the classification, we will initially use LeNet5 as done in [3]. However, we may spot different overall better model in the literature.
+\end{itemize}
+
+
+
+
+
+\section{Positioning}
+
+\section{Plan and Intended Work}
 	
 \end{document}
