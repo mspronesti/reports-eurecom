@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry} % change this parameter to enlarge/restrict the margins
+\usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, comment, graphicx, environ}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{hyperref}
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+
+
+\renewcommand{\footrulewidth}{0.8pt}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue,
+}
+
+% fancy style 
+\pagestyle{fancy}
+% remove fancy style from bottom 
+\renewcommand{\footrulewidth}{0pt}
+
+\lhead{Gabriele Gioetto, Simone Papicchio, Massimiliano Pronesti}
+\rhead{MALCOM} 
+
+\newcommand{\loss}{L(\theta, a)}
+\newcommand{\lossRule}{L(\theta, \delta(x))}
+\newcommand{\risk}{R(\theta, \delta)}
+
+\begin{document}
+	\input{coverPage}
+	
+	\section{Project Description}
+	\subsection{this is a subsection}
+	\subsection{this is another subsection}
+	
+\end{document}

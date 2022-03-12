@@ -186,7 +186,7 @@ The last term is proportional to the square distance between two normalized vect
 This proves rather interesting from a quantum point of view as we exploit an inner property of states in quantum mechanics instead of directly measuring it \cite{Basheer2020-ww}. This approach, called SWAP test, is the key for the quantum distance measurement.
 \begin{figure}[H]
   \centering
-    \includegraphics[width=.8\linewidth]{assets/Quantum-swap-test-circuit-correct.png}
+    \includegraphics[width=.8\linewidth]{assets/kmeans/Quantum-swap-test-circuit-correct.png}
     \caption{Swap Test Circuit}
 \end{figure}
 There are other explorable metrics proposed in scientific literature, such as the Hamming distance metric \cite{Li2021-le}, nevertheless the first one sticks to the traditional idea of the classical K-NN algorithm. In fact, after constructing the quantum circuits, their results are used to compute the fidelities and eventually to do a majority voting to predict the class. 
@@ -203,7 +203,7 @@ In order to run the QKMeans algorithm we firstly map data feature values to a qu
 The algorithm is then run with a similar logic to the classical one. First, we pick some random initial points using some heuristic, for example K-Means++\cite{10.5555/1283383.1283494}. At each step of our iteration, we need to compute distances of our new data point with respect to the centroids of our cluster, which is easily doable in a quantum context, in a similar way as explained for the Quantum K-NN. Alternatively, instead of constructing a 1-level SWAP test circuit we can construct a $k$-level circuit, where $k$ is the number of clusters, in order to compute in one-shot the distances of a state vector with respect to the $k$ cluster centroids. This can get better performances and high parallelism. Below a figure of the circuit assuming $k=3$.
 \begin{figure}[H]
   \centering
-    \includegraphics[width=\linewidth]{assets/qkmeans_circuit.jpg}
+    \includegraphics[width=\linewidth]{assets/kmeans/qkmeans_circuit.jpg}
 \end{figure}
 
 However, in this case the number of qubit needed increases. In fact, for each level added, we need 3 more qubits.
