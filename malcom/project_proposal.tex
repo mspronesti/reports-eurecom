@@ -29,6 +29,13 @@
 \newcommand{\lossRule}{L(\theta, \delta(x))}
 \newcommand{\risk}{R(\theta, \delta)}
 
+%------------------------------------------------
+%% Bibliography
+\usepackage[sorting=none, backend=bibtex]{biblatex}
+\addbibresource{ref.bib}
+%------------------------------------------------
+
+
 \begin{document}
 	\input{coverPage}
 	
@@ -56,17 +63,17 @@ With this project, we aim to become familiar with the federated scenario and its
 
 \begin{enumerate}
     \item To get familiar with Federated Learning and its main algorithms and architecture.
-    \item  To replicate the experiments proposed by [3] on the CIFAR10 dataset.
+    \item  To replicate the experiments proposed by \cite{DBLP:journals/corr/abs-2003-08082} on the CIFAR10 dataset.
     \item To understand the contribution made by each parameter of the federated setting by
 proposing an experimental study.
 \item To understand the importance of clients’ local data distribution in the federated scenario. 
-\item To make our contribution for solving existing issues (Not yet defined)
+\item To make our contribution for solving existing issues (Not yet defined)\\
 \end{enumerate}
 
-The idea is to start studying the first papers published by Google [1][2] 
+The idea is to start studying the first papers published by Google \cite{DBLP:journals/corr/McMahanMRA16}\cite{pmlr-v54-mcmahan17a}
 where Federated Learning and its main algorithm FederatedAveraging (FedAvg) are introduced.
 
-Then we want to replicate the experiments performed in [3] with the CIFAR10 and CIFAR100 datasets.
+Then we want to replicate the experiments performed in \cite{DBLP:journals/corr/abs-2003-08082} with the CIFAR10 and CIFAR100 datasets.
 In order to do so, we will implement first the baseline which is composed of:
 \begin{itemize}
     \item standard updates aggregation algorithm i.e. FedAvg
@@ -77,8 +84,8 @@ In order to do so, we will implement first the baseline which is composed of:
 The dataset for the Baseline will be CIFAR10. Challenging will be to understand how to adapt it to
 the federated scenario, i.e. how to divide it among clients, how many clients we will have and so on.
 
-The task is image classification on 10 classes. In [3], there is a possible choice of the neural
-network, i.e. LeNet5 [11]. We will decide whether to keep that architecture or change it.
+The task is image classification on 10 classes. In \cite{DBLP:journals/corr/abs-2003-08082}, there is a possible choice of the neural
+network, i.e. LeNet5 \cite{726791}. We will decide whether to keep that architecture or change it.
 
 For validating the results, the reference metric is the weighted average of the accuracy reached
 by each client, where the weight corresponds to the number of samples seen by that client. 
@@ -93,8 +100,8 @@ The last part of the project will be based on our variation. So far we spot two 
 
 \begin{itemize}
     \item \textbf{Algorithm for aggregating the updates on the server-side}: in FL, the standard and most
-used algorithm is FederatedAveraging (FedAvg). Some works propose possible improvements and changes of FedAvg to answer different issues [10,12,14,18]. Otherwise, different algorithms exist, such as FedSGD [2].
-\item \textbf{Neural Network for classification}: For the classification, we will initially use LeNet5 as done in [3]. However, we may spot different overall better model in the literature.
+used algorithm is FederatedAveraging (FedAvg). Some works propose possible improvements and changes of FedAvg to answer different issues \cite{DBLP:journals/corr/abs-1812-06127}[10,12,14,18]. Otherwise, different algorithms exist, such as FedSGD \cite{pmlr-v54-mcmahan17a}.
+\item \textbf{Neural Network for classification}: For the classification, we will initially use LeNet5 as done in \cite{DBLP:journals/corr/abs-2003-08082}. However, we may spot different overall better model in the literature.
 \end{itemize}
 
 
@@ -104,5 +111,6 @@ used algorithm is FederatedAveraging (FedAvg). Some works propose possible impro
 \section{Positioning}
 
 \section{Plan and Intended Work}
-	
+\newpage
+\printbibliography
 \end{document}
