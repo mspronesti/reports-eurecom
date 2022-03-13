@@ -109,6 +109,18 @@ used algorithm is FederatedAveraging (FedAvg). Some works propose possible impro
 
 
 \section{Positioning}
+Two of the main issues\cite{ZHANG2021106775} of Federated Learning are class imbalance and non IID data. 
+In many real-life scenarios, we IID assumption does not hold and we could encounter class imbalance, which results in a reduction of classification accuracy on minority classes. In a Federated Learning setting, we can have trouble achieving good results in such cases.\\
+Over the years different solutions have been proposed to solve such problems:
+\begin{itemize}
+  \item \textbf{Optimizing Federated Learning on Non-IID Data
+with Reinforcement Learning}\cite{9155494}: the authors of this paper used a reinforcement-learning approach to accelerate and stabilize the federated learning process by learning to actively select the best subset of devices in each communication round that can counterbalance the bias introduced by non-IID data.
+  \item \textbf{Federated Learning with Non-IID Data}\cite{DBLP:journals/corr/abs-1806-00582}: the authors introduced a trade-off between accuracy and centralization distributing a small amount of globally shared data containing examples from each class. This strategy improves \emph{FedAvg} with non-IID data
+  \item \textbf{Addressing Class Imbalance in Federated Learning}\cite{DBLP:journals/corr/abs-2008-06217}: to detect the imbalance in FL timely and accurately, the authors propose to design a monitor that estimates the composition across classes during FL, and if a particular imbalanced composition appears continuously, the monitor will alert the administrator (AD) to apply measures that can mitigate the negative impact
+  \item \textbf{Robust and Communication-Efficient Federated Learning From Non-i.i.d. Data}\cite{DBLP:journals/corr/abs-1903-02891}: the authors constructed a new communication protocol for federated learning that resolved different issues, among which also non IID data and imbalanced classes
+\end{itemize}
+
+
 
 \section{Plan and Intended Work}
 \newpage
