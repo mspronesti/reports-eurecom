@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage[margin=1in]{geometry} % change this parameter to enlarge/restrict the margins
+\usepackage[margin=1.2in]{geometry} % change this parameter to enlarge/restrict the margins
 \usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, comment, graphicx, environ}
 \usepackage{xcolor}
 \usepackage{mdframed}
@@ -7,7 +7,7 @@
 \usepackage{hyperref}
 \usepackage{calrsfs}
 \DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
-
+\usepackage{graphicx}
 
 \renewcommand{\footrulewidth}{0.8pt}
 \hypersetup{
@@ -45,7 +45,7 @@ Nowadays, a lot of data is generated but cannot be exploited due to its sensitiv
 instance, we can think of the data collected by the cameras or GPS sensors in our mobile phones,
 or the performed ultrasounds and X-ray scans, or the data produced by the Internet of Things
 (IoT). They are all of great value to the world of Big Data and Machine Learning (ML) applications,
-but are also protected by privacy and, therefore, unusable by traditional methods
+but they are also protected by privacy and, therefore, unusable by traditional methods.
 
 
 Introduced in 2016 by Google, Federated Learning (FL) is a machine learning scenario born with
@@ -69,7 +69,6 @@ proposing an experimental study.
 \item To understand the importance of clients’ local data distribution in the federated scenario. 
 \item To make our contribution for solving existing issues (Not yet defined)\\
 \end{enumerate}
-
 The idea is to start studying the first papers published by Google \cite{DBLP:journals/corr/McMahanMRA16}\cite{pmlr-v54-mcmahan17a}
 where Federated Learning and its main algorithm FederatedAveraging (FedAvg) are introduced.
 
@@ -82,9 +81,7 @@ In order to do so, we will implement first the baseline which is composed of:
 	\item division of the dataset among clients.
 \end{itemize}
 The dataset for the Baseline will be CIFAR10. Challenging will be to understand how to adapt it to
-the federated scenario, i.e. how to divide it among clients, how many clients we will have and so on.
-
-The task is image classification on 10 classes. In \cite{DBLP:journals/corr/abs-2003-08082}, there is a possible choice of the neural
+the federated scenario, i.e. how to divide it among clients, how many clients we will have and so on. The task is image classification on 10 classes. In \cite{DBLP:journals/corr/abs-2003-08082}, there is a possible choice of the neural
 network, i.e. LeNet5 \cite{726791}. We will decide whether to keep that architecture or change it.
 
 For validating the results, the reference metric is the weighted average of the accuracy reached
@@ -100,17 +97,15 @@ The last part of the project will be based on our variation. So far we spot two 
 
 \begin{itemize}
     \item \textbf{Algorithm for aggregating the updates on the server-side}: in FL, the standard and most
-used algorithm is FederatedAveraging (FedAvg). Some works propose possible improvements and changes of FedAvg to answer different issues \cite{DBLP:journals/corr/abs-1812-06127}[10,12,14,18]. Otherwise, different algorithms exist, such as FedSGD \cite{pmlr-v54-mcmahan17a}.
+used algorithm is FederatedAveraging (FedAvg). Some works propose possible improvements and changes of FedAvg to answer different issues \cite{DBLP:journals/corr/abs-1812-06127, DBLP:journals/corr/abs-2002-07948, pmlr-v119-karimireddy20a, pmlr-v108-reisizadeh20a}.
+Otherwise, different algorithms exist, such as FedSGD \cite{pmlr-v54-mcmahan17a}.
 \item \textbf{Neural Network for classification}: For the classification, we will initially use LeNet5 as done in \cite{DBLP:journals/corr/abs-2003-08082}. However, we may spot different overall better model in the literature.
 \end{itemize}
 
 
-
-
-
 \section{Positioning}
-Two of the main issues\cite{ZHANG2021106775} of Federated Learning are class imbalance and non IID data. 
-In many real-life scenarios, we IID assumption does not hold and we could encounter class imbalance, which results in a reduction of classification accuracy on minority classes. In a Federated Learning setting, we can have trouble achieving good results in such cases.\\
+Two of the main issues of Federated Learning are class imbalance and non IID data\cite{ZHANG2021106775}. 
+In many real-life scenarios, the IID assumption does not hold and we could encounter class imbalance, which results in a reduction of classification accuracy on minority classes. In a Federated Learning setting, we can have trouble achieving good results in such cases.\\
 Over the years different solutions have been proposed to solve such problems:
 \begin{itemize}
   \item \textbf{Optimizing Federated Learning on Non-IID Data
@@ -121,8 +116,16 @@ with Reinforcement Learning}\cite{9155494}: the authors of this paper used a rei
 \end{itemize}
 
 
-
 \section{Plan and Intended Work}
+Once the project proposal is accepted, we plan to devote the following 5 weeks to the baseline implementation as described in \textbf{Section 2}. Then, we are going to focus our attention on the Ablantion Studies for approximately 1 month. Eventually, the focus will shift on the variations, for the remaining time before the deadline.\\ 
+A visual timeline describing our plan and intended work is shown in \textbf{Figure 1}.
+
+\begin{figure}[h]
+\includegraphics[width=0.9\textwidth, angle=0]{assets/timeline.pdf}
+\caption{Intended timeline}
+\end{figure}
+
+
 \newpage
 \printbibliography
 \end{document}
