@@ -1,0 +1,3 @@
+[submodule "talk_amadeus"]
+	path = talk_amadeus
+	url = https://github.com/mspronesti/talk-qml-amadeus
