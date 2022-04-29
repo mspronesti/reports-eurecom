@@ -6,3 +6,6 @@ This repository contains (some of) my projects' reports written during my exchan
 * [Foundations of Statistical Inference](stats)
 * [Machine Learning and Intelligent Systems](malis)
 * [Machine Learning for Communication Systems](malcom)
+* [Algorithmic Machine Learning](aml)
+* [Amadeus Talk on Quantum Machine Learning](talk_amadeus)
+
