@@ -1,0 +1,137 @@
+\documentclass{article}
+\usepackage[margin=0.8in]{geometry} % change this parameter to enlarge/restrict the margins
+\usepackage{amsmath,amsthm,amssymb,amsfonts, fancyhdr, color, comment, graphicx, environ}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage[shortlabels]{enumitem}
+\usepackage{hyperref}
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\usepackage{graphicx}
+\usepackage{makecell} %table cells
+\usepackage{booktabs} %table appearance
+\usepackage{caption} %table caption
+
+\renewcommand{\footrulewidth}{0.8pt}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=blue,
+}
+
+%/ Margin
+%/ ##########################
+%/\addtolength{\oddsidemargin}{-.7in}
+%/\addtolength{\evensidemargin}{-.7in}
+%/\addtolength{\textwidth}{1.4in} %/Double of the 2 above
+% ###########################
+
+% fancy style 
+\pagestyle{fancy}
+% remove fancy style from bottom 
+\renewcommand{\footrulewidth}{0pt}
+
+\lhead{Group 20}
+\rhead{Algorithmic Machine Learning} 
+
+\newcommand{\loss}{L(\theta, a)}
+\newcommand{\lossRule}{L(\theta, \delta(x))}
+\newcommand{\risk}{R(\theta, \delta)}
+
+%------------------------------------------------
+%% Bibliography
+%\usepackage[sorting=none, backend=bibtex]{biblatex}
+%\addbibresource{ref.bib}
+%------------------------------------------------
+
+\begin{document}
+	\input{coverPage}
+	
+\section{Introduction}
+
+\begin{itemize}
+	\item 
+	\item 
+	\item 
+\end{itemize}
+
+\section{Data Analysis}
+    \subsection{Outliers}
+	\begin{itemize}
+		\item 
+		\item 
+		\item 
+	\end{itemize}
+   	
+    \subsection{Correlations}
+	\begin{itemize}
+		\item 
+		\item 
+		\item 
+	\end{itemize}
+   
+    \subsection{Feature Shift}
+	\begin{itemize}
+		\item 
+		\item 
+		\item 
+	\end{itemize}    
+
+
+
+\section{Pre-Processing}
+\begin{itemize}
+	\item 
+	\item 
+	\item 
+\end{itemize}
+
+
+
+    \section{Models}
+    \begin{itemize}
+    	\item 
+    	\item 
+    	\item 
+    \end{itemize}
+
+%	\setlength{\tabcolsep}{1.9em}
+%	\begin{center}
+%		\begin{tabular}{m{2cm}m{4.5cm}m{1.5cm}m{1.6cm}}
+%			\toprule
+%			
+%			\makecell[t]{Pipeline \\ \& Model} & \makecell[t]{Hyperparameters \\ Explored} & \makecell[t]{Best} & \makecell[t]{Validation \\ RMSE}\\
+%			\midrule
+%			% first row
+%			\makecell{StandardScaler,\\ PCA, \\ Ridge}  & \makecell{  alpha: [0.1, 0.01, 0.001]} & \makecell{ alpha: 0.1} & \makecell[t]{2.4}\\
+%			%second row
+%			\makecell{StandardScaler, \\ 20 RF features \\ Ridge} & \makecell{alpha: [0.1, 0.01, 0.001]} & \makecell{alpha: 0.1} & \makecell{2.71}\\
+%			%third row
+%			\makecell{StandardScaler, \\ 20 RF features\\ Random Forest } & \makecell{  n\_estimators: [2, 5, 8, 10]\\max\_depth: [15, 30, 60]} & \makecell{ n\_estimators: 10\\max\_depth: 30} & \makecell{ 2.76}\\
+%			%fourth row
+%			\makecell{\textbf{StandardScaler,}\\ \textbf{CatBoostReg}} & \makecell{ lr: [0.1, 0.01], depth: [8,10]\\iterations: [1000, 10000]} & \makecell{lr: 0.1, depth: 10 \\ iterations:10000} & \makecell{1.52}\\
+%			
+%			\bottomrule
+%		\end{tabular}
+%		\captionof{table}{Models and hyperparameters tested} 
+%		\label{table:hypTest}
+%	\end{center}
+
+\section{Results}
+
+
+\begin{itemize}
+	\item 
+	\item 
+	\item 
+\end{itemize}
+
+\section{Conclusions}
+\begin{itemize}
+	\item 
+	\item 
+	\item 
+\end{itemize}
+
+\end{document}

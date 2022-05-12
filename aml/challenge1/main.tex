@@ -120,26 +120,6 @@ fact\_latitude                  & 13.625               \\
 \label{table:wassDist}
 \end{minipage}
 
-%\begin{table}
-%\begin{center}
-%\begin{tabular}{lccl}
-%\toprule
-%Feature                         & Wasserstein distance \\ \midrule
-%fact\_latitude                  & 13.625               \\
-%gfs\_total\_clouds\_cover\_high & 13.718               \\
-%gfs\_temperature\_15000         & 14.541               \\
-%gfs\_v\_wind                    & 16.866               \\
-%gfs\_precipitable\_water        & 16.999               \\
-%cmc\_0\_1\_0\_0                 & 17.057               \\
-%gfs\_2m\_dewpoint\_grad         & 24.006               \\
-%cmc\_available                  & 49.000               \\
-%gfs\_available                  & 49.000               \\
-%wrf\_available                  & 49.000               \\ \bottomrule
-%\end{tabular}
-%\end{center}
-%\captionof{table}{Most shifted features between train and test dataset according to Wasserstein metric.} 
-%\end{table}
-
 
 \section{Pre-Processing}
 Different models call for different preprocessings and feature selections. We try different approaches in conjunction with one or more models to find the best one in each situation.
@@ -189,32 +169,29 @@ fact\_longitude          & 0.002202\\
     We perform for each model a simple Grid Search on a small amount of hyperparameters with a five-fold cross validation. By comparing the train and validation scores on the best split we select the best performing model and its respective best set of hyperparameters.
 
     To avoid data leakage between train and validation sets we pack both preprocessing and model in a Pipeline\footnote{sklearn.pipeline.Pipeline} that is repeated on each iteration of the five-fold.
-    
+    c
 \setlength{\tabcolsep}{1.9em}
-\begin{table*}[t]
-\centering
-\begin{tabular}{p{2cm}p{4.5cm}p{1.8cm}p{2cm}}
-\toprule
+\begin{center}
+	\begin{tabular}{m{2cm}m{4.5cm}m{1.5cm}m{1.6cm}}
+		\toprule
+		
+		\makecell[t]{Pipeline \\ \& Model} & \makecell[t]{Hyperparameters \\ Explored} & \makecell[t]{Best} & \makecell[t]{Validation \\ RMSE}\\
+		\midrule
+		% first row
+		\makecell{StandardScaler,\\ PCA, \\ Ridge}  & \makecell{  alpha: [0.1, 0.01, 0.001]} & \makecell{ alpha: 0.1} & \makecell[t]{2.4}\\
+		%second row
+		\makecell{StandardScaler, \\ 20 RF features \\ Ridge} & \makecell{alpha: [0.1, 0.01, 0.001]} & \makecell{alpha: 0.1} & \makecell{2.71}\\
+		%third row
+		\makecell{StandardScaler, \\ 20 RF features\\ Random Forest } & \makecell{  n\_estimators: [2, 5, 8, 10]\\max\_depth: [15, 30, 60]} & \makecell{ n\_estimators: 10\\max\_depth: 30} & \makecell{ 2.76}\\
+		%fourth row
+		\makecell{\textbf{StandardScaler,}\\ \textbf{CatBoostReg}} & \makecell{ lr: [0.1, 0.01], depth: [8,10]\\iterations: [1000, 10000]} & \makecell{lr: 0.1, depth: 10 \\ iterations:10000} & \makecell{1.52}\\
+		
+		\bottomrule
+	\end{tabular}
+	\captionof{table}{Models and hyperparameters tested} 
+	\label{table:hypTest}
+\end{center}
 
-\makecell[t]{Pipeline \\ \& Model} & \makecell[t]{Hyperparameters \\ Explored} & \makecell[t]{Best} & \makecell[t]{Validation \\ RMSE}\\
-\midrule
-% first row
-\makecell{StandardScaler,\\ PCA, \\ Ridge}  & \makecell{ \\ alpha: [0.1, 0.01, 0.001]} & \makecell{\\ alpha: 0.1} & \makecell[t]{\\2.4}\\
-%second row
-\makecell{StandardScaler, \\ 20 RF features \\ Ridge} & \makecell{\\alpha: [0.1, 0.01, 0.001]} & \makecell{ \\ alpha: 0.1} & \makecell{\\2.71}\\
-%third row
-\makecell{StandardScaler, \\ 20 RF features\\ Random Forest } & \makecell{ \\ \\ n\_estimators: [2, 5, 8, 10]\\max\_depth: [15, 30, 60]} & \makecell{ n\_estimators: 10\\max\_depth: 30} & \makecell{\\2.76}\\
-%fourth row
-\makecell{\textbf{StandardScaler,}\\ \textbf{CatBoostReg}} & \makecell{\\ \\ lr: [0.1, 0.01], depth:[8,10]\\iterations:[1000, 10000]} & \makecell{lr: 0.1, depth: 10 \\iterations:10000} & \makecell{\\1.52}\\
-      
-
-
-
-\bottomrule
-\end{tabular}
-\captionof{table}{Models and hyperparameters tested} 
-\label{table:hypTest}
-\end{table*}
 \section{Results}
 Applying different combinations of preprocessing techniques, we observe the following outcomes:
 
