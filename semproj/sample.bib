@@ -1,0 +1,150 @@
+@inproceedings{crystal,
+author = {Shanbhag, Anil and Madden, Samuel and Yu, Xiangyao},
+title = {A Study of the Fundamental Performance Characteristics of GPUs and CPUs for Database Analytics},
+year = {2020},
+isbn = {9781450367356},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3318464.3380595},
+doi = {10.1145/3318464.3380595},
+abstract = {There has been significant amount of excitement and recent work on GPU-based database systems. Previous work has claimed that these systems can perform orders of magnitude better than CPU-based database systems on analytical workloads such as those found in decision support and business intelligence applications. A hardware expert would view these claims with suspicion. Given the general notion that database operators are memory-bandwidth bound, one would expect the maximum gain to be roughly equal to the ratio of the memory bandwidth of GPU to that of CPU. In this paper, we adopt a model-based approach to understand when and why the performance gains of running queries on GPUs vs on CPUs vary from the bandwidth ratio (which is roughly 16\texttimes{} on modern hardware). We propose Crystal, a library of parallel routines that can be combined together to run full SQL queries on a GPU with minimal materialization overhead. We implement individual query operators to show that while the speedups for selection, projection, and sorts are near the bandwidth ratio, joins achieve less speedup due to differences in hardware capabilities. Interestingly, we show on a popular analytical workload that full query performance gain from running on GPU exceeds the bandwidth ratio despite individual operators having speedup less than bandwidth ratio, as a result of limitations of vectorizing chained operators on CPUs, resulting in a 25\texttimes{} speedup for GPUs over CPUs on the benchmark.},
+booktitle = {Proceedings of the 2020 ACM SIGMOD International Conference on Management of Data},
+pages = {1617–1632},
+numpages = {16},
+keywords = {in-memory analytics, GPU query performance, GPU data analytics, heterogenous systems},
+location = {Portland, OR, USA},
+series = {SIGMOD '20}
+}
+
+
+
+@inproceedings{hipsycl,
+  doi = {10.1145/3388333.3388658},
+  url = {https://doi.org/10.1145/3388333.3388658},
+  year = {2020},
+  month = apr,
+  publisher = {{ACM}},
+  author = {Aksel Alpay and Vincent Heuveline},
+  title = {{SYCL} beyond {OpenCL}},
+  booktitle = {Proceedings of the International Workshop on {OpenCL}}
+}
+
+@InProceedings{ssb,
+author="O'Neil, Patrick
+and O'Neil, Elizabeth
+and Chen, Xuedong
+and Revilak, Stephen",
+editor="Nambiar, Raghunath
+and Poess, Meikel",
+title="The Star Schema Benchmark and Augmented Fact Table Indexing",
+booktitle="Performance Evaluation and Benchmarking",
+year="2009",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="237--252",
+abstract="We provide a benchmark measuring star schema queries retrieving data from a fact table with Where clause column restrictions on dimension tables. Clustering is crucial to performance with modern disk technology, since retrievals with filter factors down to 0.0005 are now performed most efficiently by sequential table search rather than by indexed access. DB2's Multi-Dimensional Clustering (MDC) provides methods to ``dice'' the fact table along a number of orthogonal ``dimensions'', but only when these dimensions are columns in the fact table. The diced cells cluster fact rows on several of these ``dimensions'' at once so queries restricting several such columns can access crucially localized data, with much faster query response. Unfortunately, columns of dimension tables of a star schema are not usually represented in the fact table. In this paper, we show a simple way to adjoin physical copies of dimension columns to the fact table, dicing data to effectively cluster query retrieval, and explain how such dicing can be achieved on database products other than DB2. We provide benchmark measurements to show successful use of this methodology on three commercial database products.",
+isbn="978-3-642-10424-4"
+}
+
+
+@inproceedings{xjoin,
+author = {Marinelli, Eugenio and Appuswamy, Raja},
+title = {XJoin: Portable, Parallel Hash Join across Diverse XPU Architectures with OneAPI},
+year = {2021},
+isbn = {9781450385565},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3465998.3466012},
+doi = {10.1145/3465998.3466012},
+abstract = {Modern server hardware is increasingly heterogeneous with a diverse mix of XPU architectures deployed across CPU, GPU, and FPGAs. However, till date, database developers have had to rely on either proprietary, architecture-specific solutions (like CUDA), or low-level, cross-architecture solutions that complicate development (like OpenCL). The lack of portable parallelism caused by the absence of a common high-level programming framework is one of the main reasons preventing a wider adoption of XPUs by database systems.In this paper, we take the first steps towards solving this problem using oneAPI-a cross-industry effort for developing an open, standards-based unified programming model that extends standard C++ to provide portable parallelism across diverse processor architectures. In particular, we port a recently-proposed, highly-optimized, GPU-based hash join algorithm from CUDA to Data Parallel C++ (DPC++). We then execute the hash join on multicore CPUs, integrated GPUs (Intel GEN9), and discrete GPUs (Intel DG1 and NVIDIA GeForce) without changing a single line of kernel code to demonstrate that DPC++ enables portable parallelism. We compare the performance of DPC++ kernels with hand-optimized CUDA kernels and model-based theoretical performance bounds to demonstrate the performance-portability trade off in using DPC++.},
+booktitle = {Proceedings of the 17th International Workshop on Data Management on New Hardware (DaMoN 2021)},
+articleno = {11},
+numpages = {5},
+location = {Virtual Event, China},
+series = {DAMON'21}
+}
+
+  
+@misc{cuda,
+  author={NVIDIA and Vingelmann, Péter and Fitzek, Frank H.P.},
+  title={CUDA, release: 10.2.89},
+  year={2020},
+  url={https://developer.nvidia.com/cuda-toolkit},
+} 
+
+@inproceedings{deakin,
+author = {Deakin, Tom and McIntosh-Smith, Simon},
+title = {Evaluating the Performance of HPC-Style SYCL Applications},
+year = {2020},
+isbn = {9781450375313},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3388333.3388643},
+doi = {10.1145/3388333.3388643},
+abstract = {SYCL is a parallel programming model for developing single-source programs for running on heterogeneous platforms. To this end, it allows for one code to be written which can run on a different architectures. For this study, we develop applications in SYCL which are representative of those often used in High-Performance Computing. Their performance is benchmarked on a variety of CPU and GPU architectures from multiple vendors, and compared to well optimised versions written in OpenCL and other parallel programming models.},
+booktitle = {Proceedings of the International Workshop on OpenCL},
+articleno = {12},
+numpages = {11},
+keywords = {benchmarking, SYCL, GPGPUs, performance portability},
+location = {Munich, Germany},
+series = {IWOCL '20}
+}
+
+@book{dpcpp_book,
+  title={Data Parallel C++: Mastering DPC++ for Programming of Heterogeneous Systems using C++ and SYCL},
+  author={Reinders, J. and Ashbaugh, B. and Brodman, J. and Kinsner, M. and Pennycook, J. and Tian, X.},
+  isbn={9781484255735},
+  url={https://books.google.fr/books?id=vLI7zAEACAAJ},
+  year={2020},
+  publisher={Apress}
+}
+
+
+@inproceedings{fpga_dl,
+author = {Nurvitadhi, Eriko and Venkatesh, Ganesh and Sim, Jaewoong and Marr, Debbie and Huang, Randy and Ong Gee Hock, Jason and Liew, Yeong Tat and Srivatsan, Krishnan and Moss, Duncan and Subhaschandra, Suchit and Boudoukh, Guy},
+title = {Can FPGAs Beat GPUs in Accelerating Next-Generation Deep Neural Networks?},
+year = {2017},
+isbn = {9781450343541},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3020078.3021740},
+doi = {10.1145/3020078.3021740},
+booktitle = {Proceedings of the 2017 ACM/SIGDA International Symposium on Field-Programmable Gate Arrays},
+pages = {5–14},
+numpages = {10},
+keywords = {deep learning, intel stratix 10, FPGA, accelerator, GPU},
+location = {Monterey, California, USA},
+series = {FPGA '17}
+}
+
+
+ @misc{fpga_optim,
+ author = {},
+ url={https://www.intel.com/content/dam/develop/external/us/en/documents/oneapi-dpcpp-fpga-optimization-guide.pdf}} 
+ 
+
+ @misc{githubOneAPIsamplesDirectProgrammingDPCFPGAReferenceDesignsdbMaster,
+	author = {},
+	title = {one{A}{P}{I}-samples/{D}irect{P}rogramming/{D}{P}{C}++{F}{P}{G}{A}/{R}eference{D}esigns/db at master · oneapi-src/one{A}{P}{I}-samples --- github.com},
+	howpublished = {\url{https://github.com/oneapi-src/oneAPI-samples/tree/master/DirectProgramming/DPC\%2B\%2BFPGA/ReferenceDesigns/db}},
+	year = {},
+	note = {[Accessed 27-Jun-2022]},
+}
+@inproceedings{Chen2020IsFU,
+  title={Is FPGA Useful for Hash Joins?},
+  author={Xinyu Chen and Yao Chen and Ronak Bajaj and Jiong He and Bingsheng He and W. Wong and Deming Chen},
+  booktitle={CIDR},
+  year={2020}
+}
+ @misc{harp, 
+ author = {},
+ howpublished = {\url{https://cpufpga.files.wordpress.com/2016/04/harp_isca_2016_final.pdf}},
+ }
+ 
+ 
+ @inproceedings{FPGAbasedMF,
+  title={FPGA-based Multithreading for In-Memory Hash Joins},
+  author={Robert J. Halstead and Ildar Absalyamov and Walid A. Najjar and Vassilis J. Tsotras},
+  booktitle={CIDR},
+  year={2015}
+}
