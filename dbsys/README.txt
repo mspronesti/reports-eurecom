@@ -1,0 +1,1 @@
+The purpose of this reports was describing our implementation choices and faced issues, if any. However, being the class interface of simpledb very much structured and "guided", the design choices on our part were very minimal. Thatàs why these reports are more informative than technical.
